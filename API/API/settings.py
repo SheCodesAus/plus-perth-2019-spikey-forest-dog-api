@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users.apps.UsersConfig',
+    'petter.apps.PetterConfig',
 
 ]
 
@@ -88,8 +88,6 @@ DATABASES = {
         "PORT": os.getenv("PORT"),
     }
 }
-
-AUTH_USER_MODEL = 'users.CustomUser'
 
 
 # Password validation
