@@ -28,7 +28,7 @@ SECRET_KEY = '48#txxm^m6#6%wty!%e*%$*b0%*9ktfbwq23qz#=fyp70-7=36'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["laptop-sakieiqg"]
+ALLOWED_HOSTS = ["laptop-sakieiqg","petter-api.herokuapp.com"]
 
 
 # Application definition
