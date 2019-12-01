@@ -8,11 +8,7 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class UserSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer(many=False, required=False)
     class Meta:
         model = User
-        exclude = ['password']
-
-# class PetSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Pet
-#         fields = ''
+        fields = ['id', 'url', 'username', 'is_active', 'email', 'first_name', 'last_name','profile']
