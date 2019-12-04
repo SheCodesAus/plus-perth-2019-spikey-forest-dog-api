@@ -29,7 +29,7 @@ class Pets(models.Model):
     heart_worm_treated = models.CharField(max_length=50)
     medical_notes = models.CharField(max_length=50)
     personality = models.CharField(max_length=250)
-    senior = models.CharField(max_length=50)comm
+    senior = models.CharField(max_length=50)
     size = models.CharField(max_length=50)
     photos = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
