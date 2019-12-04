@@ -5,6 +5,7 @@ from petter.serializers import ProfileSerializer, UserSerializer, PetsSerializer
 from rest_framework import generics, viewsets
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from rest_framework.permissions import IsAuthenticated
 
 
 # Create your views here.
@@ -15,10 +16,15 @@ PET_LISTING_URL = "http://www.petrescue.com.au/api/listings"
 class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+    permission_classes = (IsAuthenticated,)
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = (IsAuthenticated,)
+
+# class RegisterViewSet(viewsets.ModelViewSet):
+#     form = Profile(request.POST)
     
 class PetsViewSet(viewsets.ModelViewSet):
     queryset = Pets.objects.all()
@@ -50,4 +56,3 @@ def import_data(request):
             "postcode": item.postcode.string,
             "postcode_range": item.postcode_range.string,
         }
-    
