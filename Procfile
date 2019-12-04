@@ -1,0 +1,1 @@
+web: waitress-serve API.API.wsgi:application
