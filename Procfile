@@ -1,1 +1,1 @@
-web: waitress-serve --post=$PORT API.wsgi:application
+web: waitress-serve --port=$PORT API.wsgi:application
