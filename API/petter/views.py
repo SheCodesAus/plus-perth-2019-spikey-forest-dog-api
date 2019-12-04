@@ -2,10 +2,19 @@ from rest_framework import serializers
 from django.shortcuts import render, redirect
 from petter.models import User, Profile, Pets
 from petter.serializers import ProfileSerializer, UserSerializer, PetsSerializer
+from django.http import HttpResponse
+from .forms import SignupForm
 from rest_framework import generics, viewsets
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from rest_framework.permissions import IsAuthenticated
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.encoding import force_bytes, force_text
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.template.loader import render_to_string
+from .tokens import account_activation_token
+from django.contrib.auth.models import User
+from django.core.mail import EmailMessage
 
 
 # Create your views here.
