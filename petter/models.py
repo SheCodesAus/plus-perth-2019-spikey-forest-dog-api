@@ -4,12 +4,18 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+Pet_Preference = (
+    ('any', 'Any'),
+    ('cat', 'Cat'),
+    ('dog', 'Dog'),
+    ('rabbit', 'Rabbit'),
+    ('bird', 'Bird')
+)
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    # username = models.CharField(max_length=50)
-    # first_name = models.CharField(max_length=50)
-    email = models.CharField(max_length=100)
     postcode = models.CharField(max_length=4)
+    pet_preference = models.CharField(max_length=6, choices=Pet_Preference, default='any')
 
     def __str__(self):
         return self.name
