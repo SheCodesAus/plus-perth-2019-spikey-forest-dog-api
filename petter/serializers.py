@@ -23,7 +23,7 @@ class UserSerializer(serializers.ModelSerializer):
     @transaction.atomic
     def create(self, validated_data):
         # remove the profile data
-        profile_data = validated_data.pop("profile")
+        profile_data = validated_data.pop("profile",None)
         # create user from validated data
         user = User(**validated_data)
 
@@ -37,7 +37,8 @@ class UserSerializer(serializers.ModelSerializer):
         # save the user
         user.save()
         # update the user profile
-        Profile.objects.filter(user=user).update(**profile_data)
+        if profile_data:
+            Profile.objects.filter(user=user).update(**profile_data)
 
         # send user password setup email
         send_password_reset_email(user)
@@ -45,7 +46,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         # remove the profile data
-        profile_data = validated_data.pop("profile")
+        profile_data = validated_data.pop("profile",None)
         # run the normal update process
         super().update(instance, validated_data)
         # handle extra profile information
@@ -63,8 +64,8 @@ class PasswordSerializer(serializers.Serializer):
 class PetsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pets
-        fields = ('name', 'adoption_fee', 'breeds_display', 'coat', 'contact_number', 'created_at', 'age', 
-                 'status', 'desexed', 'gender', 'group', 'heart_worm_treated', 'medical_notes', 'personality', 
-                 'senior', 'size', 'photos', 'state', 'vaccinate', 'wormed', 'postcode', 'postcode_range'
+        fields = ('name', 'adoption_fee', 'pet_type', 'breeds_display', 'contact_number', 'created_at', 'age', 
+                 'status', 'desexed', 'gender', 'medical_notes', 'personality', 
+                 'senior', 'size', 'photos', 'state', 'vaccinate', 'wormed', 'postcode'
         )
 

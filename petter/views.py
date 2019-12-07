@@ -7,8 +7,6 @@ from .permissions import IsAdminOrSelf
 from .serializers import ProfileSerializer, UserSerializer, PetsSerializer, PasswordSerializer
 from .models import User, Profile, Pets
 from .helpers import send_password_reset_email
-
-
 # from rest_framework import serializers
 # from django.shortcuts import render, redirect
 # from django.http import HttpResponse
