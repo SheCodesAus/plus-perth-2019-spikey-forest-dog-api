@@ -35,7 +35,7 @@ pip install -r requirements.txt
 MIGRATE DATABASE
 
 ```bash
-python manage.py make migrations 
+python manage.py makemigrations 
 python manage.py migrate
 ```
 
@@ -57,7 +57,7 @@ RUN THE SERVER
 python manage.py runserver
 ```
 
-You can then see an example of the API endpoints at:
-localhost:8000/api/login/
-localhost:8000/api/users/
-localhost:8000/api/pets/
+You can then see an example of the API endpoints at: <br>
+profiles: "http://localhost:8000/profiles/ <br>
+users: "http://localhost:8000/users/ <br>
+pets: "http://localhost:8000/pets/
