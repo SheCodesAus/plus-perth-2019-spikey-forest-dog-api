@@ -45,7 +45,7 @@ class Pets(models.Model):
     personality = models.CharField(max_length=250)
     senior = models.CharField(max_length=50)
     size = models.CharField(max_length=50)
-    photos = models.CharField(max_length=50)
+    photos = models.ImageField(upload_to='pets')
     state = models.CharField(max_length=50)
     vaccinate = models.CharField(max_length=50)
     wormed = models.CharField(max_length=50)
